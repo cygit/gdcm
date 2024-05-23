@@ -1,0 +1,31 @@
+{
+    "dataset": "prosper_loan",
+    "gpus": [0],
+    "max_threads": 1,
+    "out_dir": "run0",
+    "dataset_params" : {
+        "window_size": [2, 4],
+        "vocab_size": [5000],
+        "min_df": [0.01, 0.001],
+        "max_df": [0.4, 0.6, 0.8]
+    },
+    "gdcm_params": {
+        "inductive": [true],
+        "inductive_dropout": [0.01, 0.1, 0.2],
+        "embed_dim": [50, 200],
+        "hidden_size": [100],
+        "num_layers": [1],
+        "nnegs": [10, 20],
+        "nconcepts": [7],
+        "lam": [1, 10, 20, 100],
+        "rho": [10, 100, 1000],
+        "eta": [1, 10, 100, 500]
+    },
+    "fit_params": {
+        "lr": [0.01],
+        "nepochs": [30],
+        "pred_only_epochs": [0, 5, 10],
+        "batch_size": [5000],
+        "grad_clip": [1000]
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept Visualization</title>
+    <!-- Include Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Custom CSS styles -->
+    <style>
+        /* Add your custom styles here */
+    </style>
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Swiper slides with concept PNGs -->
+            <div class="swiper-slide"><img src="concept_1_wordcloud.png" alt="Concept 1"></div>
+            <div class="swiper-slide"><img src="concept_2_wordcloud.png" alt="Concept 2"></div>
+            <div class="swiper-slide"><img src="concept_3_wordcloud.png" alt="Concept 1"></div>
+            <div class="swiper-slide"><img src="concept_4_wordcloud.png" alt="Concept 2"></div>
+            <div class="swiper-slide"><img src="concept_5_wordcloud.png" alt="Concept 1"></div>
+            <div class="swiper-slide"><img src="concept_6_wordcloud.png" alt="Concept 2"></div>
+            <!-- Add more swiper slides for other concepts -->
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <!-- Include Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper('.swiper-container', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            // Add more Swiper configurations as needed
+        });
+    </script>
+</body>
+</html>

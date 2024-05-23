@@ -1,0 +1,30 @@
+{
+  "dataset": "news_group",
+  "gpus": [0],
+  "max_threads": 1,
+  "out_dir": "run0",
+  "dataset_params": {
+    "window_size": [4],
+    "min_df": [0.01],
+    "max_df": [0.8]
+  },
+  "gdcm_params": {
+    "embed_dim": [50],
+    "nnegs": [15],
+    "nconcepts": [2],
+    "lam": [10, 100],
+    "rho": [100, 1000],
+    "eta": [100, 1000],
+    "inductive": [true],
+    "inductive_dropout": [0.01],
+    "hidden_size": [100],
+    "num_layers": [1]
+  },
+  "fit_params": {
+    "lr": [0.01, 0.001],
+    "nepochs": [30],
+    "pred_only_epochs": [15],
+    "batch_size": [1024, 10000],
+    "grad_clip": [1024]
+  }
+}

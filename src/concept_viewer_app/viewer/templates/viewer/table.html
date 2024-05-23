@@ -1,0 +1,44 @@
+<table class="table display" id="main_table">
+    <thead>
+    <tr>
+        <th>run ID: Epoch</th>
+        <th>λ</th>
+        <th>η</th>
+        <th>ρ</th>
+        <th>concepts</th>
+        <th>coherence per concept</th>
+        <th>average coherence</th>
+        <th>neg <span style="font-family: cursive; font-style:italic">L</span></th>
+        <th>Dir <span style="font-family: cursive; font-style:italic">L</span></th>
+        <th>div <span style="font-family: cursive; font-style:italic">L</span></th>
+        <th>clf <span style="font-family: cursive; font-style:italic">L</span></th>
+        <th>total <span style="font-family: cursive; font-style:italic">L</span></th>
+        <th>Train AUC</th>
+        <th>Test AUC</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for result in results %}
+        <tr>
+            <td style="word-break:break-all;">{{ result.run_id }}: Epoch {{result.epoch}}</td>
+            <td>{{ result.lam | floatformat:"0" }}</td>
+            <td>{{ result.eta | floatformat:"0" }}</td>
+            <td>{{ result.rho | floatformat:"0" }}</td>
+            <td>
+                <div class='longtext'>
+                    <div class='topic'>{{ result.topics | linebreaks }}</div>
+                </div>
+            </td>
+            <td>{{ result.coherence_per_topic | linebreaks }}</td>
+            <td>{{ result.coherence | floatformat:"2" }}</td>
+            <td>{{ result.avg_sgns_loss | floatformat:"2" }}</td>
+            <td>{{ result.avg_dirichlet_loss | floatformat:"2" }}</td>
+            <td>{{ result.avg_div_loss | floatformat:"2" }}</td>
+            <td>{{ result.avg_pred_loss | floatformat:"2" }}</td>
+            <td>{{ result.total_loss | floatformat:"2" }}</td>
+            <td>{{ result.train_auc | floatformat:"2" }}</td>
+            <td>{{ result.test_auc | floatformat:"2" }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
