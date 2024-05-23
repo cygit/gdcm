@@ -1,5 +1,6 @@
 # Guided Diverse Concept Miner 
-
+"Guided Diverse Concept Miner (GDCM): Uncovering Relevant Constructs for Managerial Insights from Text"
+Find the paper here: https://pubsonline.informs.org/doi/10.1287/isre.2020.0494
 End-to-end deep learning framework for automatic mining of diverse concepts guided by predicting the outcome variable.
 
 ## Prerequisites
