@@ -4,7 +4,7 @@ End-to-end deep learning framework for automatic mining of diverse concepts guid
 
 ## Prerequisites
 
-   * Get the code: `git clone git@github.com:cygit/gdcm.git; cd gdcm_cli`
+   * Get the code: `git clone git@github.com:cygit/gdcm.git; cd gdcm`
    * The first time you install GDCM CLI, you must create a Python virtual environment and install the required packages. This may take several minutes.
 ```bash
 python3 -m venv env
@@ -13,7 +13,7 @@ cd src
 pip install --editable .
 ```
 
-From hereafter, each time you start a new command line instance, you must navigate to the `gdcm_cli` directory as above and execute the commands:
+From hereafter, each time you start a new command line instance, you must navigate to the `gdcm` directory as above and execute the commands:
 
 ```bash 
 source env/bin/activate
@@ -30,7 +30,7 @@ cd src
    More options of this command can be seen with `gdcm train --help`. 
    * Start grid search with an example hyperparameter search space configuration for 20 News Group dataset: 
    `gdcm grid-search ../configs/news_config.json`. The grid search results will be saved in `../grid_search/news/run0`
-   according to the `"out_dir"` specified in `gdcm_cli/configs/news_config.json`. Under `../grid_search/news/run0`, 
+   according to the `"out_dir"` specified in `gdcm/configs/news_config.json`. Under `../grid_search/news/run0`, 
    there will be directories named with the hash value of each set of the hyperparameters being searched, such as 
    `../grid_search/news/run0/0f735f978246aa65aa1806299869978c`. Within each of these directories, there are also log
    file `gdcm.log`, metrics file `train_metrics.txt`, concept words `concept/eopch*.txt`, and saved models 
@@ -43,7 +43,7 @@ cd src
   Train GDCM
 
   DATASET is the name of the dataset to be used. It must be one of the
-  datasets defined in `gdcm_cli/src/dataset/` which is a subclass of BaseDataset.
+  datasets defined in `gdcm/src/dataset/` which is a subclass of BaseDataset.
 
   OUT-DIR is the path to the output directory where the model, results, and
   visualization will be saved
@@ -99,11 +99,11 @@ Options:
    * The configuration file for grid search is required. All of the possible fields of the configuration are 
    listed below with comments. Notice that values in `"dataset_params"`, `"gdcm_params"`, and `"fit_params"` must be 
    lists. During grid search, every possible combination of the values in these lists will be tried. The original 
-   configuration file can be found at `gdcm_cli/configs/news_config.json`.
+   configuration file can be found at `gdcm/configs/news_config.json`.
 ```
 {
       "dataset": "news_group", # the name of the dataset to be used. It must be one of the datasets 
-                               # defined in `gdcm_cli/src/dataset/` which is a subclass of BaseDataset. 
+                               # defined in `gdcm/src/dataset/` which is a subclass of BaseDataset. 
                                # The existing options are "news_group", "wcai", and "prosper_loan".
       "csv-path" : "/home/Downloads/data/wcai/wcai.csv", # path to the csv file. Only needed if `dataset` is 'csv'
       "csv-text" : "docs", # column name of the text field in the csv file. Only needed if `dataset` is 'csv'
@@ -138,9 +138,9 @@ Options:
       }
 }
 ```
-   * You can also choose to implement your own dataset under `gdcm_cli/dataset`. It must be a subclass of 
-   `dataset.base_dataset.BaseDataset` and implement the `load_data` method as other datasets `gdcm_cli/dataset/wcai.py`, 
-   `gdcm_cli/dataset/news_group.py`, and `gdcm_cli/dataset/prosper_loan.py`. The `load_data` is required to return 
+   * You can also choose to implement your own dataset under `gdcm/dataset`. It must be a subclass of 
+   `dataset.base_dataset.BaseDataset` and implement the `load_data` method as other datasets `gdcm/dataset/wcai.py`, 
+   `gdcm/dataset/news_group.py`, and `gdcm/dataset/prosper_loan.py`. The `load_data` is required to return 
    a dictionary containing the following attributes of the dataset:
    ```
 {
