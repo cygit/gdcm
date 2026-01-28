@@ -28,16 +28,16 @@ cd src
    * Train with 20 News Group dataset with default hyperparameters and save the outputs in folder "run0":
     `gdcm train news_group run0`. When this command starts running, logs will be saved in `run0/gdcm.log`.
    Metrics from each epoch will be written in `run0/train_metrics.txt`. Concept words will be saved in files
-    `run0/concept/eopch*.txt` for each epoch. The state of the model will be saved every 10 epochs and at the last
-     epoch in `run0/model/eopch*.pytorch`. A visualization of the concepts will be stored in `run0/visualization.html`.
+    `run0/concept/epoch*.txt` for each epoch. The state of the model will be saved every 10 epochs and at the last
+     epoch in `run0/model/epoch*.pytorch`. A visualization of the concepts will be stored in `run0/visualization.html`.
    More options of this command can be seen with `gdcm train --help`. 
    * Start grid search with an example hyperparameter search space configuration for 20 News Group dataset: 
    `gdcm grid-search ../configs/news_config.json`. The grid search results will be saved in `../grid_search/news/run0`
    according to the `"out_dir"` specified in `gdcm/configs/news_config.json`. Under `../grid_search/news/run0`, 
    there will be directories named with the hash value of each set of the hyperparameters being searched, such as 
    `../grid_search/news/run0/0f735f978246aa65aa1806299869978c`. Within each of these directories, there are also log
-   file `gdcm.log`, metrics file `train_metrics.txt`, concept words `concept/eopch*.txt`, and saved models 
-   `model/eopch*.pytorch`. The best metrics of each set of hyperparameters done with training are stored in
+   file `gdcm.log`, metrics file `train_metrics.txt`, concept words `concept/epoch*.txt`, and saved models 
+   `model/epoch*.pytorch`. The best metrics of each set of hyperparameters done with training are stored in
     `../grid_search/news/run0/results.csv`.
 
 ## Usage
@@ -151,11 +151,11 @@ Options:
         Training corpus encoded as a bag-of-words matrix, where n_train_docs is the number of documents
         in the training set, and vocab_size is the vocabulary size.
     "y_train": ndarray, shape (n_train_docs,)
-        Labels in the training set, ndarray with binary, multiclass, or continuos values.
+        Labels in the training set, ndarray with binary, multiclass, or continuous values.
     "bow_test": ndarray, shape (n_test_docs, vocab_size)
         Test corpus encoded as a matrix
     "y_test": ndarray, shape (n_test_docs,)
-        Labels in the test set, ndarray with binary, multiclass, or continuos values.
+        Labels in the test set, ndarray with binary, multiclass, or continuous values.
     "doc_windows": ndarray, shape (n_windows, windows_size + 3)
         Context windows constructed from bow_train. Each row represents a context window, consisting of
         the document index of the context window, the encoded target words, the encoded context words,
